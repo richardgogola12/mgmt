@@ -1,0 +1,54 @@
+﻿@model mgmt.Models.wh_list
+
+@{
+    ViewBag.Title = "Sklad - Vytvoriť";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row pt-2 pb-2">
+    <div class="col-12">
+        <h3 class="p-0 m-0">@ViewBag.title</h3>
+    </div>
+</div>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="col-12 col-md-6 p-1">
+        <div class="card">
+            <h5 class="card-header text-center bg-dark text-light">SKLAD</h5>
+            <div class="card-body border border-3 border-dark border-bottom-0">
+                <div class="form-group mb-2">
+                    <label for="dep_name" class="control-label col-md-12">Názov skladu</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", @required = "", @placeholder = "Zadajte názov nového skladu" } })
+                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="dep_name" class="control-label col-md-12">Popis skladu</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", @placeholder = "Zadajte popis nového skladu" } })
+                        @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer border border-3 border-dark border-top-0 text-center text-md-end">
+                <button type="submit" class="btn btn-success"><i class="fa fa-plus-circle"></i> Vytvoriť</button>
+                <a href="/wh_list/Index" class="btn btn-sm btn-dark me-1"><i class="fa fa-arrow-left"></i> Naspäť</a>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

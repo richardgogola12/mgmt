@@ -1,0 +1,58 @@
+﻿@model mgmt.Models.wh_list
+
+@{
+    ViewBag.Title = "Sklad - Upraviť";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row pt-2 pb-2">
+    <div class="col-12">
+        <h3 class="p-0 m-0">@ViewBag.title</h3>
+    </div>
+</div>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.id)
+    @Html.HiddenFor(model => model.dt)
+    @Html.HiddenFor(model => model.id_user)
+    <div class="col-12 col-md-6 p-1">
+        <div class="card">
+            <h5 class="card-header text-center bg-dark text-light">SKLAD</h5>
+            <div class="card-body border border-3 border-dark border-bottom-0">
+                <div class="form-group mb-2">
+                    @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control", @required = "", @autocomplete = "off" } })
+                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group mb-2">
+                    @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+                        @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.dt, htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.dt, new { htmlAttributes = new { @class = "form-control", @disabled = "" } })
+                        @Html.ValidationMessageFor(model => model.dt, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer border border-3 border-dark border-top-0 text-center text-md-end">
+                <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Uložiť</button>
+                <a href="/wh_list/Index" class="btn btn-sm btn-dark me-1"><i class="fa fa-arrow-left"></i> Naspäť</a>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

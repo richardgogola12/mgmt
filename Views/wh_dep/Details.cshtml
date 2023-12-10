@@ -1,0 +1,25 @@
+﻿@model mgmt.Models.wh_dep
+
+@{
+    ViewBag.Title = "Sklad - Oddelenie - Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row pt-2 pb-2">
+    <div class="col-12">
+        <h3 class="p-0 m-0">@ViewBag.title</h3>
+    </div>
+</div>
+<hr />
+
+<div class="col-12 col-md-6 p-1">
+    <div class="card">
+        <h5 class="card-header text-center bg-dark text-light">ODDELENIE</h5>
+        <div class="card-body border border-3 border-dark border-bottom-0">
+            <h5 class="card-title text-capitalize">Názov: @Model.dep_name</h5>
+        </div>
+        <div class="card-footer border border-3 border-dark border-top-0 text-center text-md-end">
+            <a href="/wh_dep/Index/@Request.QueryString["id_wh"]" class="btn btn-sm btn-dark me-1"><i class="fa fa-arrow-left"></i>Naspäť</a>
+        </div>
+    </div>
+</div>

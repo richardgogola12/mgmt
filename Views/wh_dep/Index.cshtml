@@ -1,0 +1,58 @@
+﻿@model IEnumerable<mgmt.Models.get_dep_list_by_wh_Result>
+
+@{
+    ViewBag.Title = "Sklad - Oddelenia";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row pt-2 pb-2">
+    <div class="col-6">
+        <h3 class="p-0 m-0">@ViewBag.title</h3>
+    </div>
+    <div class="col-6 text-end">
+        <a href="/wh_dep/Create?id_wh=@ViewBag.id_wh" class="btn btn-success"><i class="fa fa-plus-circle"></i> Vytvoriť</a>
+    </div>
+</div>
+<hr />
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-12 col-md-4 p-1 h-100">
+            <div class="card">
+                <h5 class="card-header text-center bg-dark text-light">ODDELENIE</h5>
+                <div class="card-body border border-3 border-dark border-bottom-0">
+                    <h5 class="card-title text-capitalize">@item.dep_name</h5>
+                </div>
+                <div class="card-footer border border-3 border-dark border-top-0 text-center text-md-end">
+                    <a href="/wh_dep/Details/@item.id?id_wh=@ViewBag.id_wh" class="btn btn-sm btn-info me-1"><i class="fa fa-eye"></i></a>
+                    <a href="/wh_dep/Edit/@item.id?id_wh=@ViewBag.id_wh" class="btn btn-sm btn-warning me-1"><i class="fa fa-pencil"></i></a>
+                    <a href="/wh_dep/Delete/@item.id?id_wh=@ViewBag.id_wh" class="btn btn-sm btn-danger me-1"><i class="fa fa-remove"></i></a> |
+                    <a href="/wh_dep/Delete/@item.id?id_wh=@ViewBag.id_wh" class="btn btn-sm btn-primary me-1"><i class="fa fa-location-arrow"></i></a>
+                </div>
+            </div>
+        </div>
+    }
+
+    @if (Model.Count() == 0)
+    {
+        <div class="col-md-12 mb-2">
+            <h2 class="p-0 m-0 text-center text-light bg-dark p-3 rounded rounded-3">
+                <i class="m-3 fa-2x fa fa-trash align-middle"></i>
+                Žiadne údaje
+                <i class="m-3 fa-2x fa fa-trash align-middle"></i>
+            </h2>
+        </div>
+
+        <div class="col-md-3 mx-auto">
+            <a href="/wh_list/Index" class="btn btn-sm btn-dark"><i class="fa fa-arrow-left"></i> Naspäť ku skladom</a>
+        </div>
+
+    }
+</div>
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e1d9a1ee66fd426b9d88ba4c72024db3" Name="Diagram1">
+        <EntityTypeShape EntityType="mgmtModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mgmtModel.AspNetRole" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="mgmtModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mgmtModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="mgmtModel.AspNetUser" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="mgmtModel.wh_list" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <AssociationConnector Association="mgmtModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="mgmtModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="mgmtModel.FK_wh_list_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="mgmtModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="mgmtModel.wh_dep" Width="1.5" PointX="0.75" PointY="7.75" />
+        <AssociationConnector Association="mgmtModel.FK_wh_dep_wh_list" />
+        <EntityTypeShape EntityType="mgmtModel.wh_dep_locations" Width="1.5" PointX="3" PointY="7.875" />
+        <AssociationConnector Association="mgmtModel.FK_wh_dep_locations_wh_dep" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

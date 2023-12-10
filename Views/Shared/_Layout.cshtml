@@ -1,0 +1,81 @@
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body class="p-0 m-0">
+    @*horny bar*@
+    <header>
+        <div class="container-fluid bg-dark text-light">
+            <div class="container">
+                <div class="row p-2">
+                    <div class="col-md-12">
+                        <h1 class="p-0 m-0"><b class="text-warning">WMS</b> - <b class="text-warning">W</b>arehouse <b class="text-warning">M</b>anagement <b class="text-warning">S</b>ystem</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    @*hlavny obsah web stranky*@
+    <main>
+        <div class="container-fluid bg-dark border border-5 border-top-0 border-start-0 border-end-0 border-danger">
+            <div class="container bg-dark">
+                <nav class="navbar navbar-expand-lg bg-dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="/">
+                            <img width="48" src="~/img/logo.png" />
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active text-light" aria-current="page" href="/">Domov</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" href="/wh_list/index">Sklady</a>
+                                </li>
+                            </ul>
+                            <div class="d-flex text-light">
+                                @Html.Partial("~/Views/Shared/_LoginPartial.cshtml")
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="container pt-2 ">
+                <div class="col-md-12">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    @*peticka*@
+    <footer>
+
+    </footer>
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+

@@ -1,0 +1,35 @@
+﻿@model mgmt.Models.wh_list
+
+@{
+    ViewBag.Title = "Sklad - Vymazať";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row pt-2 pb-2">
+    <div class="col-12">
+        <h3 class="p-0 m-0">@ViewBag.title</h3>
+    </div>
+</div>
+<hr />
+
+<div class="col-12 col-md-6 p-1">
+    <div class="card">
+        <h5 class="card-header text-center bg-dark text-light">SKLAD</h5>
+        <div class="card-body border border-3 border-dark border-bottom-0">
+            <h5 class="card-title text-capitalize">@Model.name</h5>
+            <p class="card-text">@Model.description</p>
+            <p class="text-muted small m-0">@Model.dt</p>
+        </div>
+        <div class="card-footer border border-3 border-dark border-top-0 text-center text-md-end">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <button type="submit" class="btn btn-danger"><i class="fa fa-remove"></i> Vymazať</button>
+                    <a href="/wh_list/Index" class="btn btn-sm btn-dark me-1"><i class="fa fa-arrow-left"></i> Naspäť</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
